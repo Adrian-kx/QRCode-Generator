@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/qrious.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Gerador de QRCode</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <div>
+            <input type="text" placeholder="Digite para gerar..." size="25" v-model="text">
+            <span>
+                <p>Cor do QRCode:</p>
+                <input v-model="color" type="color">
+            </span>
+        </div>
+        <div class="output" v-if="text">
+            <img :src="newQRCode">
+            <a :href="newQRCode" download="qrcode.png">Baixar QRCode</a>
+        </div>
+        <p v-if="!text" class="output">Digite um texto</p>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
